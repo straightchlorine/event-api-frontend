@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
+  baseURL: "http://localhost:8080/api",
 });
 
 export const login = async (credentials) => {
@@ -21,6 +21,7 @@ export const logout = async () => {
 };
 
 export const getEvents = async () => {
+  console.log(API.baseURL);
   const response = await API.get("/events");
   return response.data.events;
 };
